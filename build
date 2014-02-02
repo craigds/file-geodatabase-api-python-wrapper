@@ -1,0 +1,4 @@
+export LD_LIBRARY_PATH=FileGDB_API/lib/
+swig -python -IFileGDB_API/include -c++ filegdbapi.i
+c++ -c filegdbapi_wrap.cxx -IFileGDB_API/include -I/usr/include/python2.6
+c++ -shared filegdbapi_wrap.o -LFileGDB_API/lib -lpython2.6 -lFileGDBAPI -o _filegdbapi.so 
